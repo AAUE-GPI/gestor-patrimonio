@@ -192,9 +192,9 @@ class Examples extends MY_Controller
 	{
 		// Customize this array for your user
 		$user_data = [
-			'username'   => 'nuno',
+			'username'   => '123',
 			'passwd'     => '123',
-			'email'      => 'asd@asdas.com',
+			'email'      => 'asd@asdas.codm',
 			'auth_level' => '9', // 9 if you want to login @ examples/index.
 		];
 
@@ -294,6 +294,12 @@ class Examples extends MY_Controller
 		if( strtolower( $_SERVER['REQUEST_METHOD'] ) == 'post' )
 			$this->require_min_level(1);
 
+		$this->is_logged_in();
+		if (isset($this->auth_username))
+        {
+    		redirect(base_url());
+        }
+        
 		$this->setup_login_form();
 
 		$html = $this->load->view('template/header', '', TRUE);
