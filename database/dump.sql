@@ -1,6 +1,6 @@
 -- MySQL dump 10.16  Distrib 10.1.14-MariaDB, for Linux (x86_64)
 --
--- Host: localhost    Database: reitor
+-- Host: localhost    Database: patrimonio
 -- ------------------------------------------------------
 -- Server version	10.1.14-MariaDB
 
@@ -120,36 +120,8 @@ CREATE TABLE `auth_sessions` (
 
 LOCK TABLES `auth_sessions` WRITE;
 /*!40000 ALTER TABLE `auth_sessions` DISABLE KEYS */;
-INSERT INTO `auth_sessions` VALUES ('hqiu6jf1h7uj60iv2osnc1ltu89nemtl',3786380904,'2017-03-15 23:00:46','2017-03-15 23:00:46','::1','Chrome 50.0.2661.94 on Linux'),('6lccj2recu7r6pfbk00pn6kros8a72d8',3786380904,'2017-03-16 00:09:33','2017-03-16 00:09:33','::1','Chrome 50.0.2661.94 on Linux');
+INSERT INTO `auth_sessions` VALUES ('66ked9shifrsq0j3cp4phojc1pim12ea',2405280987,'2017-03-29 21:46:52','2017-03-29 21:46:52','::1','Chrome 50.0.2661.94 on Linux');
 /*!40000 ALTER TABLE `auth_sessions` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `calendario`
---
-
-DROP TABLE IF EXISTS `calendario`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `calendario` (
-  `jornada` int(11) DEFAULT NULL,
-  `dia` int(11) DEFAULT NULL,
-  `hora` text,
-  `local` text,
-  `equipas` text,
-  `resultado` text,
-  `grupo` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `calendario`
---
-
-LOCK TABLES `calendario` WRITE;
-/*!40000 ALTER TABLE `calendario` DISABLE KEYS */;
-INSERT INTO `calendario` VALUES (1,2,'dfsd','fssfd','fdsdfsfd0','cona',NULL),(4,2,'dfsd','fssfd','fdsdfsfd0','cona',NULL),(3,4,'dfsd','fssfd','fdsdfsfd0','cona',NULL),(1,3,'dfsd','fssfd','fdsdfsfd0','cona',NULL),(5,6,'dfsd','fssfd','fdsdfsfd0','cona',NULL),(5,6,'dfsd','FUSCO GAY','NUNO GAY','cona',NULL),(1,2,'dfsd','fssfd','fdsdfsfd0','cona',1),(1,2,'dfsd','fssfd','fdsdfsfd0','cona',1),(1,2,'dfsd','fssfd','fdsdfsfd0','cona',3),(1,2,'dfsd','fssfd','fdsdfsfd0','cona',2),(1,2,'dfsd','fssfd','Grupo A','cona',1),(1,2,'dfsd','fssfd','Grupo B','cona',2),(1,2,'dfsd','fssfd','Grupo C','cona',3),(1,2,'dfsd','fssfd','Grupo D','cona',4);
-/*!40000 ALTER TABLE `calendario` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -204,59 +176,6 @@ LOCK TABLES `denied_access` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `equipas`
---
-
-DROP TABLE IF EXISTS `equipas`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `equipas` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` text,
-  `pontos` int(11) DEFAULT NULL,
-  `jr` int(11) DEFAULT NULL,
-  `gm` int(11) DEFAULT NULL,
-  `gs` int(11) DEFAULT NULL,
-  `grupo` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `equipas`
---
-
-LOCK TABLES `equipas` WRITE;
-/*!40000 ALTER TABLE `equipas` DISABLE KEYS */;
-INSERT INTO `equipas` VALUES (1,'62 TEAM',25,1,5,3,NULL),(2,'69 TEAM',4,1,6,2,NULL),(3,'69 TEAM',4,1,10,2,NULL);
-/*!40000 ALTER TABLE `equipas` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `grupos`
---
-
-DROP TABLE IF EXISTS `grupos`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `grupos` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nome` text,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `grupos`
---
-
-LOCK TABLES `grupos` WRITE;
-/*!40000 ALTER TABLE `grupos` DISABLE KEYS */;
-INSERT INTO `grupos` VALUES (1,'Grupo A'),(2,'Grupo B'),(3,'Grupo C'),(4,'Grupo D');
-/*!40000 ALTER TABLE `grupos` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `ips_on_hold`
 --
 
@@ -281,59 +200,6 @@ LOCK TABLES `ips_on_hold` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `jogador`
---
-
-DROP TABLE IF EXISTS `jogador`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `jogador` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) DEFAULT NULL,
-  `equipa` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `jogador`
---
-
-LOCK TABLES `jogador` WRITE;
-/*!40000 ALTER TABLE `jogador` DISABLE KEYS */;
-/*!40000 ALTER TABLE `jogador` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `jogos`
---
-
-DROP TABLE IF EXISTS `jogos`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `jogos` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `equipa_a` int(11) DEFAULT NULL,
-  `equipa_b` int(11) DEFAULT NULL,
-  `dia` int(11) DEFAULT NULL,
-  `mes` int(11) DEFAULT NULL,
-  `jornada` int(11) DEFAULT NULL,
-  `score_a` int(11) DEFAULT NULL,
-  `score_b` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `jogos`
---
-
-LOCK TABLES `jogos` WRITE;
-/*!40000 ALTER TABLE `jogos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `jogos` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `login_errors`
 --
 
@@ -346,7 +212,7 @@ CREATE TABLE `login_errors` (
   `ip_address` varchar(45) NOT NULL,
   `time` datetime NOT NULL,
   PRIMARY KEY (`ai`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -355,6 +221,7 @@ CREATE TABLE `login_errors` (
 
 LOCK TABLES `login_errors` WRITE;
 /*!40000 ALTER TABLE `login_errors` DISABLE KEYS */;
+INSERT INTO `login_errors` VALUES (4,'123','::1','2017-03-29 21:02:00');
 /*!40000 ALTER TABLE `login_errors` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -414,7 +281,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (3786380904,'nuno','asd@asdas.com',9,'0','$2y$11$aAo2J6FxXclcbcCytPNlf.0SKQiAGiI6Wu1uj8gG.zx.Ln3O1QzHm',NULL,NULL,NULL,'2017-03-16 00:09:33','2017-03-15 22:40:48','2017-03-16 00:09:33');
+INSERT INTO `users` VALUES (2405280987,'123','asd@asdas.codm',9,'0','$2y$11$QH8IYxNJXRjMAlRuBeRdQO4bJwO0L7Ex.0tna9NBqM5lRm1k4Kwru',NULL,NULL,NULL,'2017-03-29 21:46:52','2017-03-22 19:06:05','2017-03-29 21:46:52'),(3786380904,'nuno','asd@asdas.com',9,'0','$2y$11$aAo2J6FxXclcbcCytPNlf.0SKQiAGiI6Wu1uj8gG.zx.Ln3O1QzHm',NULL,NULL,NULL,'2017-03-22 19:04:57','2017-03-15 22:40:48','2017-03-22 19:04:57');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -448,4 +315,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-22 18:05:04
+-- Dump completed on 2017-03-29 22:54:08

@@ -33,10 +33,9 @@ if( ! isset( $on_hold_message ) )
 	if( $this->input->get('logout') )
 	{
 		echo '
-			<div style="border:1px solid green">
-				<p>
-					You have successfully logged out.
-				</p>
+			<div class="alert alert-success alert-dismissable">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+ 				<strong>Logout</strong> com sucesso
 			</div>
 		';
 	}
@@ -45,7 +44,7 @@ if( ! isset( $on_hold_message ) )
 ?>
 <br>
 				<div class="loginmodal-container">
-					<h1>Login to Your Account</h1><br>
+					<h1>Login: 123 Pass: 123</h1><br>
 				  <form>
 					<input type="text" name="login_string" id="login_string" class="form_input" autocomplete="off" maxlength="255" placeholder="Username" />
 					<input type="password" placeholder="Password" name="login_pass" id="login_pass" class="form_input password" <?php 
