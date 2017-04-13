@@ -10,10 +10,10 @@ class Carros extends MY_Controller {
     {
     	$this->load->view('template/header');
 		
-		$this->load->view('aluguer_carro');
+			$this->load->view('aluguer_carro');
 
 
-		$this->load->view('template/footer');
+			$this->load->view('template/footer');
     	
     }
 }
