@@ -12,7 +12,6 @@ class Carros extends MY_Controller {
 		
 		$this->load->view('aluguer_carro');
 
-
 		$this->load->view('template/footer');
     	
     }
