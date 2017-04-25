@@ -1,8 +1,8 @@
--- MySQL dump 10.16  Distrib 10.1.14-MariaDB, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.17, for Linux (x86_64)
 --
 -- Host: localhost    Database: patrimonio
 -- ------------------------------------------------------
--- Server version	10.1.14-MariaDB
+-- Server version	5.7.17-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -120,8 +120,61 @@ CREATE TABLE `auth_sessions` (
 
 LOCK TABLES `auth_sessions` WRITE;
 /*!40000 ALTER TABLE `auth_sessions` DISABLE KEYS */;
-INSERT INTO `auth_sessions` VALUES ('66ked9shifrsq0j3cp4phojc1pim12ea',2405280987,'2017-03-29 21:46:52','2017-03-29 21:46:52','::1','Chrome 50.0.2661.94 on Linux');
+INSERT INTO `auth_sessions` VALUES ('66ked9shifrsq0j3cp4phojc1pim12ea',2405280987,'2017-03-29 21:46:52','2017-03-29 21:46:52','::1','Chrome 50.0.2661.94 on Linux'),('c9vn1pu5dunk3dhd2j6q8tnt0s1fkv55',2405280987,'2017-04-25 23:05:53','2017-04-25 21:34:40','127.0.0.1','Firefox 52.0 on Linux');
 /*!40000 ALTER TABLE `auth_sessions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `calendario`
+--
+
+DROP TABLE IF EXISTS `calendario`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `calendario` (
+  `jornada` int(11) DEFAULT NULL,
+  `dia` int(11) DEFAULT NULL,
+  `hora` text,
+  `local` text,
+  `equipas` text,
+  `resultado` text,
+  `grupo` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `calendario`
+--
+
+LOCK TABLES `calendario` WRITE;
+/*!40000 ALTER TABLE `calendario` DISABLE KEYS */;
+INSERT INTO `calendario` VALUES (1,2,'dfsd','fssfd','fdsdfsfd0','cona',NULL),(4,2,'dfsd','fssfd','fdsdfsfd0','cona',NULL),(3,4,'dfsd','fssfd','fdsdfsfd0','cona',NULL),(1,3,'dfsd','fssfd','fdsdfsfd0','cona',NULL),(5,6,'dfsd','fssfd','fdsdfsfd0','cona',NULL),(5,6,'dfsd','FUSCO GAY','NUNO GAY','cona',NULL),(1,2,'dfsd','fssfd','fdsdfsfd0','cona',1),(1,2,'dfsd','fssfd','fdsdfsfd0','cona',1),(1,2,'dfsd','fssfd','fdsdfsfd0','cona',3),(1,2,'dfsd','fssfd','fdsdfsfd0','cona',2),(1,2,'dfsd','fssfd','Grupo A','cona',1),(1,2,'dfsd','fssfd','Grupo B','cona',2),(1,2,'dfsd','fssfd','Grupo C','cona',3),(1,2,'dfsd','fssfd','Grupo D','cona',4);
+/*!40000 ALTER TABLE `calendario` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `carros`
+--
+
+DROP TABLE IF EXISTS `carros`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `carros` (
+  `id` int(11) NOT NULL,
+  `id_matricula` varchar(10) DEFAULT NULL,
+  `marca_modelo` varchar(50) DEFAULT NULL,
+  `descricao` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `carros`
+--
+
+LOCK TABLES `carros` WRITE;
+/*!40000 ALTER TABLE `carros` DISABLE KEYS */;
+/*!40000 ALTER TABLE `carros` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -176,6 +229,59 @@ LOCK TABLES `denied_access` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `equipas`
+--
+
+DROP TABLE IF EXISTS `equipas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `equipas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` text,
+  `pontos` int(11) DEFAULT NULL,
+  `jr` int(11) DEFAULT NULL,
+  `gm` int(11) DEFAULT NULL,
+  `gs` int(11) DEFAULT NULL,
+  `grupo` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `equipas`
+--
+
+LOCK TABLES `equipas` WRITE;
+/*!40000 ALTER TABLE `equipas` DISABLE KEYS */;
+INSERT INTO `equipas` VALUES (1,'62 TEAM',25,1,5,3,NULL),(2,'69 TEAM',4,1,6,2,NULL),(3,'69 TEAM',4,1,10,2,NULL);
+/*!40000 ALTER TABLE `equipas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `grupos`
+--
+
+DROP TABLE IF EXISTS `grupos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `grupos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `grupos`
+--
+
+LOCK TABLES `grupos` WRITE;
+/*!40000 ALTER TABLE `grupos` DISABLE KEYS */;
+INSERT INTO `grupos` VALUES (1,'Grupo A'),(2,'Grupo B'),(3,'Grupo C'),(4,'Grupo D');
+/*!40000 ALTER TABLE `grupos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `ips_on_hold`
 --
 
@@ -197,6 +303,59 @@ CREATE TABLE `ips_on_hold` (
 LOCK TABLES `ips_on_hold` WRITE;
 /*!40000 ALTER TABLE `ips_on_hold` DISABLE KEYS */;
 /*!40000 ALTER TABLE `ips_on_hold` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `jogador`
+--
+
+DROP TABLE IF EXISTS `jogador`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `jogador` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) DEFAULT NULL,
+  `equipa` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `jogador`
+--
+
+LOCK TABLES `jogador` WRITE;
+/*!40000 ALTER TABLE `jogador` DISABLE KEYS */;
+/*!40000 ALTER TABLE `jogador` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `jogos`
+--
+
+DROP TABLE IF EXISTS `jogos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `jogos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `equipa_a` int(11) DEFAULT NULL,
+  `equipa_b` int(11) DEFAULT NULL,
+  `dia` int(11) DEFAULT NULL,
+  `mes` int(11) DEFAULT NULL,
+  `jornada` int(11) DEFAULT NULL,
+  `score_a` int(11) DEFAULT NULL,
+  `score_b` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `jogos`
+--
+
+LOCK TABLES `jogos` WRITE;
+/*!40000 ALTER TABLE `jogos` DISABLE KEYS */;
+/*!40000 ALTER TABLE `jogos` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -223,6 +382,72 @@ LOCK TABLES `login_errors` WRITE;
 /*!40000 ALTER TABLE `login_errors` DISABLE KEYS */;
 INSERT INTO `login_errors` VALUES (4,'123','::1','2017-03-29 21:02:00');
 /*!40000 ALTER TABLE `login_errors` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `requisicaoCarros`
+--
+
+DROP TABLE IF EXISTS `requisicaoCarros`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `requisicaoCarros` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `dataInicial` varchar(50) DEFAULT NULL,
+  `dataFinal` varchar(50) DEFAULT NULL,
+  `kmInicial` varchar(50) DEFAULT NULL,
+  `kmFinal` varchar(50) DEFAULT NULL,
+  `ocorrencias` varchar(255) DEFAULT NULL,
+  `idCarro` int(11) DEFAULT NULL,
+  `nomeRequisitante` text,
+  `cartaConducao` varchar(50) DEFAULT NULL,
+  `bi` varchar(50) DEFAULT NULL,
+  `contacto` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `requisicaoCarros`
+--
+
+LOCK TABLES `requisicaoCarros` WRITE;
+/*!40000 ALTER TABLE `requisicaoCarros` DISABLE KEYS */;
+/*!40000 ALTER TABLE `requisicaoCarros` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `reserva_carros`
+--
+
+DROP TABLE IF EXISTS `reserva_carros`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `reserva_carros` (
+  `id` int(11) NOT NULL,
+  `km_iniciais` int(11) DEFAULT NULL,
+  `km_finais` int(11) DEFAULT NULL,
+  `data_inicial` varchar(20) DEFAULT NULL,
+  `data_final` varchar(20) DEFAULT NULL,
+  `comb_inicial` int(11) DEFAULT NULL,
+  `comb_final` int(11) DEFAULT NULL,
+  `indentificacao` varchar(50) DEFAULT NULL,
+  `nome` varchar(50) DEFAULT NULL,
+  `ocorrencias` text,
+  `id_carro` int(11) DEFAULT NULL,
+  `nr_carta_cond` varchar(15) DEFAULT NULL,
+  `contacto` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `reserva_carros`
+--
+
+LOCK TABLES `reserva_carros` WRITE;
+/*!40000 ALTER TABLE `reserva_carros` DISABLE KEYS */;
+/*!40000 ALTER TABLE `reserva_carros` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -281,7 +506,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (2405280987,'123','asd@asdas.codm',9,'0','$2y$11$QH8IYxNJXRjMAlRuBeRdQO4bJwO0L7Ex.0tna9NBqM5lRm1k4Kwru',NULL,NULL,NULL,'2017-03-29 21:46:52','2017-03-22 19:06:05','2017-03-29 21:46:52'),(3786380904,'nuno','asd@asdas.com',9,'0','$2y$11$aAo2J6FxXclcbcCytPNlf.0SKQiAGiI6Wu1uj8gG.zx.Ln3O1QzHm',NULL,NULL,NULL,'2017-03-22 19:04:57','2017-03-15 22:40:48','2017-03-22 19:04:57');
+INSERT INTO `users` VALUES (2405280987,'123','asd@asdas.codm',9,'0','$2y$11$QH8IYxNJXRjMAlRuBeRdQO4bJwO0L7Ex.0tna9NBqM5lRm1k4Kwru',NULL,NULL,NULL,'2017-04-25 23:05:53','2017-03-22 19:06:05','2017-04-25 21:05:53'),(3786380904,'nuno','asd@asdas.com',9,'0','$2y$11$aAo2J6FxXclcbcCytPNlf.0SKQiAGiI6Wu1uj8gG.zx.Ln3O1QzHm',NULL,NULL,NULL,'2017-03-22 19:04:57','2017-03-15 22:40:48','2017-03-22 19:04:57');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -315,4 +540,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-29 22:54:08
+-- Dump completed on 2017-04-25 22:46:09
