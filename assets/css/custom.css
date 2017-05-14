@@ -44,7 +44,7 @@ body {
 }
 
 .tabela-riscada {
-	vertical-align: middle; 
+	vertical-align: middle;
 	text-align: center;
 	height: 60px;
 	border: 0px;
@@ -60,7 +60,7 @@ body {
 	height: 60px;
 	background-color: #AD1C3E;
 	color:white;
-	vertical-align: middle; 
+	vertical-align: middle;
 	text-align: center;
 }
 
@@ -179,7 +179,7 @@ body {
   /* border: 1px solid #3079ed; */
   border: 0px;
   color: #fff;
-  text-shadow: 0 1px rgba(0,0,0,0.1); 
+  text-shadow: 0 1px rgba(0,0,0,0.1);
   background-color: #4d90fe;
   padding: 17px 0px;
   font-family: roboto;
@@ -203,7 +203,7 @@ body {
   display: inline-block;
   opacity: 0.6;
   transition: opacity ease 0.5s;
-} 
+}
 
 .login-help{
   font-size: 12px;
@@ -221,3 +221,27 @@ body {
 =======
 }
 >>>>>>> Stashed changes
+.tabela-butoes{
+
+}
+
+.botao{
+	background-color: grey;
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.imagem{
+	display: table-cell;
+}
+
+.nome{
+	display: table-cell;
+	text-align: center;
+	width: 100%;
+}
+
+.botao a {
+	text-decoration: none;
+	color: white;
+}
